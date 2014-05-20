@@ -46,11 +46,10 @@ body {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
   background: url("https://github.com/jsprit/jsprit.github.io/raw/master/img/pblm_v2.png");
-  opacity: 0.5;
 }
 .jumbotron .btn {
-  padding: 14px 24px;
-  font-size: 21px;
+  padding: 7px 12px;
+  font-size: 12px;
 }
 
 /* Supporting marketing content */
