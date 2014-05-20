@@ -34,7 +34,7 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 1000px;
   }
 }
 .container-narrow > hr {
@@ -45,6 +45,7 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  background: url("https://github.com/jsprit/misc-rep/raw/master/wiki-images/p08_solution.png");
 }
 .jumbotron .btn {
   padding: 14px 24px;
