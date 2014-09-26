@@ -3565,6 +3565,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-pills > li > a {
   border-radius: 4px;
+  color: #a3a3a3;
 }
 .nav-pills > li + li {
   margin-left: 2px;
@@ -3572,8 +3573,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #fff;
-  background-color: #428bca;
+  color: #000000;
 }
 .nav-stacked > li {
   float: none;
