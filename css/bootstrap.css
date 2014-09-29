@@ -690,12 +690,12 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: Consolas;
 }
 code {
   padding: 2px 4px;
   font-size: 90%;
-  color: #c7254e;
+  color: white;
   white-space: nowrap;
   background-color: #f9f2f4;
   border-radius: 4px;
@@ -710,16 +710,16 @@ kbd {
 }
 pre {
   display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
+  padding: 20px;
+  margin: 0 0 20px;
   font-size: 13px;
-  line-height: 1.42857143;
-  color: #333;
+  line-height: 1.5;
+  color: white;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f5f5f5;
+  background-color: #141F2E;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 pre code {
   padding: 0;
@@ -729,6 +729,31 @@ pre code {
   background-color: transparent;
   border-radius: 0;
 }
+.java-class {
+  color: #91CCFF;
+}
+.java-interface {
+    color: #FFCC33;
+}
+.java-local-var {
+    color: #FFFAB1;
+}
+.java-number {
+    color: #FF8080;
+}
+.java-string {
+    color: #A0FFA0;
+}
+.java-semicolon {
+    color: #CC7832;
+}
+.java-comment {
+    color: #50F050;
+}
+.java-keyword {
+    color: #0099FF;
+}
+
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;

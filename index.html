@@ -95,7 +95,67 @@
         </div>
       </div>
 
-     
+      <hr>
+
+      <h4><strong>Quickstart - Problem, Algorithm and Solution</strong></h4>
+      <h4>1) Problem</h4>
+      <p>Specify your jobs - (en-route) pickups and deliveries with 2 capacity dimensions and required skills</p>
+      <pre><code><span class="java-comment">// specify service - which involves one stop </span>
+<span class="java-class">Service</span> <span class="java-local-var">service</span> = <span class="java-class"> Service.Builder</span>.newInstance(<span class="java-string">"serviceId"</span>)
+          .setName(<span class="java-string">"myService"</span>)
+          .setCoord(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">5, 7</span>)))
+          .addSizeDimension(<span class="java-number">0,5</span>).addSizeDimension(<span class="java-number">1,20</span>)
+          .addRequiredSkills(<span class="java-string">"electric drill"</span>)
+          .setTimeWindow(<span class="java-class">TimeWindow</span>.newInstance(<span class="java-number">20,35</span>))
+          .build()<span class="java-semicolon">;</span>
+<span class="java-comment">// specify shipment - which involves two stops</span>
+<span class="java-class">Shipment</span> <span class="java-local-var">shipment</span> = <span class="java-class">Shipment.Builder</span>.newInstance(<span class="java-string">"shipmentId"</span>)
+          .setName(<span class="java-string">"myShipment"</span>)
+          .setPickupCoord(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">2, 7</span>)))
+          .setDeliveryCoord(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">10, 2</span>)))
+          .addSizeDimension(<span class="java-number">0,9</span>).addSizeDimension(<span class="java-number">1,50</span>)
+          .addRequiredSkills(<span class="java-string">"loading bridge"</span>)
+          .build()<span class="java-semicolon">;</span></code></pre>
+      <p>Specify your fleet - with multiple depots, defined start and end location and open routes</p>
+
+<pre><code><span class="java-comment">// specify type of both vehicles</span>
+<span class="java-class">VehicleTypeImpl</span> <span class="java-local-var">vehicleType</span> = <span class="java-class">VehicleTypeImpl.Builder</span>.newInstance(<span class="vehicleType">"vehicleType"</span>)
+          .addCapacityDimension(<span class="java-number">0,30</span>).addCapacityDimension(<span class="java-number">1,100</span>)
+          .build()<span class="java-semicolon">;</span>
+
+<span class="java-comment">// specify vehicle1 with different start and end locations</span>
+<span class="java-class">VehicleImpl</span> <span class="java-local-var">vehicle1</span> = <span class="java-class">VehicleImpl.Builder</span>.newInstance(<span class="java-string">"vehicle1Id"</span>)
+          .setType(<span class="java-local-var">vehicleType</span>)
+          .setStartLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">0,0</span>)
+          .setEndLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">20,20</span>)
+          .addSkill(<span class="java-string">"loading bridge"</span>).addSkill(<span class="java-string">"electric drill"</span>)
+          .build()<span class="java-semicolon">;</span>
+
+<span class="java-comment">// specify vehicle2 with open end, i.e. end is determined by the algorithm</span>
+<span class="java-class">VehicleImpl</span> <span class="java-local-var">vehicle2</span> = <span class="java-class">VehicleImpl.Builder</span>.newInstance(<span class="java-string">"vehicle2Id"</span>)
+        .setType(<span class="java-local-var">vehicleType</span>)
+        .setStartLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">5,0</span>)
+        .setReturnToDepot(<span class="java-keyword">false</span>)
+        .addSkill(<span class="java-string">"loading bridge"</span>)
+        .build()<span class="java-semicolon">;</span></code></pre>
+
+<p>Put it all together to define the problem.</p>
+<pre><code><span class="java-class">VehicleRoutingProblem.Builder</span> <span class="java-local-var">vrpBuilder</span> = <span class="java-class"> VehicleRoutingProblem.Builder</span>.newInstance()<span class="java-semicolon">;</span>
+<span class="java-local-var">vrpBuilder</span>.addJob(<span class="java-local-var">service</span>).addJob(<span class="java-local-var">shipment</span>).addVehicle(<span class="java-local-var">vehicle1</span>).addVehicle(<span class="java-local-var">vehicle2</span>))<span class="java-semicolon">;</span>
+<span class="java-class">VehicleRoutingProblem</span> <span class="java-local-var">problem</span> = <span class="java-local-var"> vrpBuilder</span>.build()<span class="java-semicolon">;</span></code></pre>
+
+      <h4>2) Algorithm</h4>
+<pre><code><span class="java-comment">// define an algorithm out of the box</span>
+<span class="java-class">VehicleRoutingAlgorithm</span> <span class="java-local-var">algorithm</span> = <span class="java-keyword">new</span> <span class="java-class">SchrimpfFactory</span>.create(<span class="java-local-var">problem</span>)<span class="java-semicolon">;</span>
+</code></pre>
+
+      <h4>3) Solution</h4>
+<pre><code><span class="java-comment">// search solutions</span>
+<span class="java-interface">Collection</span>&lt;<span class="java-class">VehicleRoutingProblemSolution</span>&gt; <span class="java-local-var">solutions</span> = <span class="java-local-var">algorithm</span>.searchSolutions()<span class="java-semicolon">;</span>
+<span class="java-comment">// get best</span>
+<span class="java-class">VehicleRoutingProblemSolution</span> <span class="java-class">bestSolution</span> = <span class="java-class">Solutions</span>.bestOf(<span class="java-local-var">solutions</span>)<span class="java-semicolon">;</span>
+</code></pre>
+
       <div class="footer">
         <p>&copy; jsprit 2014</p>
       </div>
