@@ -133,11 +133,11 @@
 
 <span class="java-comment">// specify vehicle2 with open end, i.e. end is determined by the algorithm</span>
 <span class="java-class">VehicleImpl</span> <span class="java-local-var">vehicle2</span> = <span class="java-class">VehicleImpl.Builder</span>.newInstance(<span class="java-string">"vehicle2Id"</span>)
-        .setType(<span class="java-local-var">vehicleType</span>)
-        .setStartLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">5,0</span>)
-        .setReturnToDepot(<span class="java-keyword">false</span>)
-        .addSkill(<span class="java-string">"loading bridge"</span>)
-        .build()<span class="java-semicolon">;</span></code></pre>
+          .setType(<span class="java-local-var">vehicleType</span>)
+          .setStartLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">5,0</span>)
+          .setReturnToDepot(<span class="java-keyword">false</span>)
+          .addSkill(<span class="java-string">"loading bridge"</span>)
+          .build()<span class="java-semicolon">;</span></code></pre>
 
 <p>Put it all together to define the problem.</p>
 <pre><code><span class="java-class">VehicleRoutingProblem.Builder</span> <span class="java-local-var">vrpBuilder</span> = <span class="java-class"> VehicleRoutingProblem.Builder</span>.newInstance()<span class="java-semicolon">;</span>
