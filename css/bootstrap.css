@@ -690,7 +690,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Consolas;
+  font-family: Consolas, monospace;
 }
 code {
   padding: 2px 4px;
