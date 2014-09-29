@@ -98,7 +98,7 @@
       <hr>
 
       <h4><strong>Quickstart - Problem, Algorithm and Solution</strong></h4>
-      <h4>1) Problem</h4>
+      <h4><i class="fa fa-question" style="color: #FFA500"></i> Problem</h4>
       <p>Specify your jobs - (en-route) pickups and deliveries with 2 capacity dimensions and required skills</p>
       <pre><code><span class="java-comment">// specify service - which involves one stop </span>
 <span class="java-class">Service</span> <span class="java-local-var">service</span> = <span class="java-class"> Service.Builder</span>.newInstance(<span class="java-string">"serviceId"</span>)
@@ -144,12 +144,12 @@
 <span class="java-local-var">vrpBuilder</span>.addJob(<span class="java-local-var">service</span>).addJob(<span class="java-local-var">shipment</span>).addVehicle(<span class="java-local-var">vehicle1</span>).addVehicle(<span class="java-local-var">vehicle2</span>))<span class="java-semicolon">;</span>
 <span class="java-class">VehicleRoutingProblem</span> <span class="java-local-var">problem</span> = <span class="java-local-var"> vrpBuilder</span>.build()<span class="java-semicolon">;</span></code></pre>
 
-      <h4>2) Algorithm</h4>
+      <h4><i class="fa fa-wrench" style="color: #FFA500"></i> Algorithm</h4>
 <pre><code><span class="java-comment">// define an algorithm out of the box</span>
 <span class="java-class">VehicleRoutingAlgorithm</span> <span class="java-local-var">algorithm</span> = <span class="java-keyword">new</span> <span class="java-class">SchrimpfFactory</span>.create(<span class="java-local-var">problem</span>)<span class="java-semicolon">;</span>
 </code></pre>
 
-      <h4>3) Solution</h4>
+      <h4><i class="fa fa-lightbulb-o" style="color: #FFA500"></i> Solution</h4>
 <pre><code><span class="java-comment">// search solutions</span>
 <span class="java-interface">Collection</span>&lt;<span class="java-class">VehicleRoutingProblemSolution</span>&gt; <span class="java-local-var">solutions</span> = <span class="java-local-var">algorithm</span>.searchSolutions()<span class="java-semicolon">;</span>
 <span class="java-comment">// get best</span>
