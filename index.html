@@ -99,7 +99,7 @@
 
       <h4><strong>Quickstart - Problem, Algorithm and Solution</strong></h4>
       <h4><i class="fa fa-question" style="color: #FFA500"></i> Problem</h4>
-      <p>Specify your jobs - (en-route) pickups and deliveries with 2 capacity dimensions and required skills</p>
+      <p>Specify your jobs - jsprit allows you to define services (one stop) and shipments (two stops) with multiple capacity dimensions. Additionally, you can set time windows and required skills.</p>
       <pre><code><span class="java-comment">// specify service - which involves one stop </span>
 <span class="java-class">Service</span> <span class="java-local-var">service</span> = <span class="java-class"> Service.Builder</span>.newInstance(<span class="java-string">"serviceId"</span>)
           .setName(<span class="java-string">"myService"</span>)
@@ -115,7 +115,10 @@
           .addSizeDimension(<span class="java-number">0,9</span>).addSizeDimension(<span class="java-number">1,50</span>)
           .addRequiredSkills(<span class="java-string">"loading bridge"</span>)
           .build()<span class="java-semicolon">;</span></code></pre>
-      <p>Specify your fleet - with multiple depots, defined start and end location and open routes</p>
+      <p>Specify your fleet - jsprit allows you to add multiple depots by just adding vehicles/drivers with different start locations. You can specify start and end locations explicitly. You can also instruct your drivers to return to their depots again as well as to stay at the last customer site.
+Additionally, you can define a heterogeneous fleet by assigning your vehicles different vehicle types (with different capacities and transportation costs), skills and operation times.
+
+      </p>
 
 <pre><code><span class="java-comment">// specify type of both vehicles</span>
 <span class="java-class">VehicleTypeImpl</span> <span class="java-local-var">vehicleType</span> = <span class="java-class">VehicleTypeImpl.Builder</span>.newInstance(<span class="vehicleType">"vehicleType"</span>)
@@ -137,9 +140,10 @@
           .addSkill(<span class="java-string">"loading bridge"</span>)
           .build()<span class="java-semicolon">;</span></code></pre>
 
-<p>Put it all together to define the problem.</p>
+<p>Put it all together to define the problem, set the routing costs (by default Euclidean distance is used) and specify whether you have a finite or infinite fleet. Latter might be important at tactical level when designing your fleet.</p>
 <pre><code><span class="java-class">VehicleRoutingProblem.Builder</span> <span class="java-local-var">vrpBuilder</span> = <span class="java-class"> VehicleRoutingProblem.Builder</span>.newInstance()<span class="java-semicolon">;</span>
 <span class="java-local-var">vrpBuilder</span>.addJob(<span class="java-local-var">service</span>).addJob(<span class="java-local-var">shipment</span>).addVehicle(<span class="java-local-var">vehicle1</span>).addVehicle(<span class="java-local-var">vehicle2</span>))<span class="java-semicolon">;</span>
+<span class="java-local-var">vrpBuilder</span>.setFleetSize(<span class="java-class">FleetSize</span><span class="java-local-var">.FINITE</span>)<span class="java-semicolon">;</span>
 <span class="java-class">VehicleRoutingProblem</span> <span class="java-local-var">problem</span> = <span class="java-local-var"> vrpBuilder</span>.build()<span class="java-semicolon">;</span></code></pre>
 
       <h4><i class="fa fa-wrench" style="color: #FFA500"></i> Algorithm</h4>
