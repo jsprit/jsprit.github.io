@@ -84,7 +84,7 @@
       <pre><code><span class="java-comment">// specify service - which involves one stop </span>
 <span class="java-class">Service</span> <span class="java-local-var">service</span> = <span class="java-class"> Service.Builder</span>.newInstance(<span class="java-string">"serviceId"</span>)
           .setName(<span class="java-string">"myService"</span>)
-          .setCoord(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">5,7</span>))
+          .setLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">5,7</span>))
           .addSizeDimension(<span class="java-number">0,5</span>).addSizeDimension(<span class="java-number">1,20</span>)
           .addRequiredSkill(<span class="java-string">"electric drill"</span>)
           .setTimeWindow(<span class="java-class">TimeWindow</span>.newInstance(<span class="java-number">20,35</span>))
@@ -92,7 +92,7 @@
 <span class="java-comment">// specify shipment - which involves two stops</span>
 <span class="java-class">Shipment</span> <span class="java-local-var">shipment</span> = <span class="java-class">Shipment.Builder</span>.newInstance(<span class="java-string">"shipmentId"</span>)
           .setName(<span class="java-string">"myShipment"</span>)
-          .setPickupCoord(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">2,7</span>)).setDeliveryCoord(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">10,2</span>))
+          .setPickupLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">2,7</span>)).setDeliveryCoord(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">10,2</span>))
           .addSizeDimension(<span class="java-number">0,9</span>).addSizeDimension(<span class="java-number">1,50</span>)
           .addRequiredSkill(<span class="java-string">"loading bridge"</span>).addRequiredSkill(<span class="java-string">"electric drill"</span>)
           .build()<span class="java-semicolon">;</span></code></pre>
@@ -109,14 +109,14 @@ Additionally, you can define a heterogeneous fleet by assigning different vehicl
 <span class="java-comment">// specify vehicle1 with different start and end locations</span>
 <span class="java-class">VehicleImpl</span> <span class="java-local-var">vehicle1</span> = <span class="java-class">VehicleImpl.Builder</span>.newInstance(<span class="java-string">"vehicle1Id"</span>)
           .setType(<span class="java-local-var">vehicleType</span>)
-          .setStartLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">0,0</span>).setEndLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">20,20</span>))
+          .setStartLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">0,0</span>).setEndLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">20,20</span>))
           .addSkill(<span class="java-string">"loading bridge"</span>).addSkill(<span class="java-string">"electric drill"</span>)
           .build()<span class="java-semicolon">;</span>
 
 <span class="java-comment">// specify vehicle2 with open end, i.e. end is determined by the algorithm</span>
 <span class="java-class">VehicleImpl</span> <span class="java-local-var">vehicle2</span> = <span class="java-class">VehicleImpl.Builder</span>.newInstance(<span class="java-string">"vehicle2Id"</span>)
           .setType(<span class="java-local-var">vehicleType</span>)
-          .setStartLocationCoordinate(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">5,0</span>))
+          .setStartLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">5,0</span>))
           .setReturnToDepot(<span class="java-keyword">false</span>)
           .addSkill(<span class="java-string">"loading bridge"</span>)
           .build()<span class="java-semicolon">;</span></code></pre>
@@ -129,7 +129,7 @@ Additionally, you can define a heterogeneous fleet by assigning different vehicl
 
       <h4><i class="fa fa-wrench" style="color: #FFA500"></i> Algorithm</h4>
 <pre><code><span class="java-comment">// define an algorithm out of the box - this creates a large neighborhood search algorithm </span>
-<span class="java-class">VehicleRoutingAlgorithm</span> <span class="java-local-var">algorithm</span> = <span class="java-keyword">new</span> <span class="java-class">SchrimpfFactory</span>.createAlgorithm(<span class="java-local-var">problem</span>)<span class="java-semicolon">;</span>
+<span class="java-class">VehicleRoutingAlgorithm</span> <span class="java-local-var">algorithm</span> = <span class="java-class">Jsprit</span>.createAlgorithm(<span class="java-local-var">problem</span>)<span class="java-semicolon">;</span>
 </code></pre>
 
       <h4><i class="fa fa-lightbulb-o" style="color: #FFA500"></i> Solution</h4>
