@@ -92,7 +92,7 @@
 <span class="java-comment">// specify shipment - which involves two stops</span>
 <span class="java-class">Shipment</span> <span class="java-local-var">shipment</span> = <span class="java-class">Shipment.Builder</span>.newInstance(<span class="java-string">"shipmentId"</span>)
           .setName(<span class="java-string">"myShipment"</span>)
-          .setPickupLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">2,7</span>)).setDeliveryCoord(<span class="java-class">Coordinate</span>.newInstance(<span class="java-number">10,2</span>))
+          .setPickupLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">2,7</span>)).setDeliveryLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">10,2</span>))
           .addSizeDimension(<span class="java-number">0,9</span>).addSizeDimension(<span class="java-number">1,50</span>)
           .addRequiredSkill(<span class="java-string">"loading bridge"</span>).addRequiredSkill(<span class="java-string">"electric drill"</span>)
           .build()<span class="java-semicolon">;</span></code></pre>
