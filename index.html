@@ -109,7 +109,7 @@ Additionally, you can define a heterogeneous fleet by assigning different vehicl
 <span class="java-comment">// specify vehicle1 with different start and end locations</span>
 <span class="java-class">VehicleImpl</span> <span class="java-local-var">vehicle1</span> = <span class="java-class">VehicleImpl.Builder</span>.newInstance(<span class="java-string">"vehicle1Id"</span>)
           .setType(<span class="java-local-var">vehicleType</span>)
-          .setStartLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">0,0</span>).setEndLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">20,20</span>))
+          .setStartLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">0,0</span>)).setEndLocation(<span class="java-class">Location</span>.newInstance(<span class="java-number">20,20</span>))
           .addSkill(<span class="java-string">"loading bridge"</span>).addSkill(<span class="java-string">"electric drill"</span>)
           .build()<span class="java-semicolon">;</span>
 
